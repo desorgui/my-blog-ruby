@@ -74,4 +74,5 @@ end
 group :development, :test do  
   gem 'rspec-rails'
   gem 'ffi'
+  gem 'rails-controller-testing'
 end
