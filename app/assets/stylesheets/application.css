@@ -14,7 +14,7 @@
  *= require_self
  */
 
- * {
+* {
   margin: 0;
   padding: 0;
   color: black;
@@ -55,14 +55,11 @@ li {
 
 .single-user-post {
   padding: 1rem;
-}
-
-.single-user-post {
   margin: 0.5rem 0;
 }
 
 .bio {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 .user-name {
