@@ -1,1 +1,53 @@
-<h1>specific user for a given user</h1>
+<li>
+  <div class="profile">
+      <img class="img-profile" src=<%= @user_to_find.photo  %> alt='ooops'/>
+  </div>
+
+  <div class="single-user bordered">
+      <p class="user-name">
+      user Name: <%=@user_to_find.name %>
+      </p>
+      <div>
+      <p class="counter">
+      Number of posts: <%=@user_to_find.posts.count %>
+      </p>
+      </div>
+  </div>
+</li>
+
+<div class=" bordered bio">
+  <h3>Bio</h3>
+  <p class="bio">
+  <%=@user_to_find.bio %>
+  </p>
+</div>
+
+
+
+<div>
+<% @user_found_posts.each do |post|%>
+    <a href=<%="/users/#{@user_to_find.id}/posts/#{post.id}" %>>
+        <div>
+            <div class="single-user-post bordered">
+                <div>
+                <p>Post#<%=post.id%> </p>
+                    <p class="post-title">
+                    Title: <%=post.title %>
+                    </p>
+                    <p class="post-description">
+                    Description: <%=post.text %>
+                    </p>
+                </div>
+                <div>
+                <p class="counter">
+                Comments: <%=post.comments.count %> | Likes: <%=post.likes.count %> 
+                </p>
+                </div>
+            </div>
+        </div>
+    </a>
+<% end %>
+</div>
+<div class="btn">
+<a href=<%="/users/#{@user_to_find.id}/posts" %>><button class="see-all center">See all posts </button></a>
+</div>
