@@ -22,9 +22,13 @@
   </p>
 </div>
 
-
-
+<div class ="see-all center addpost">
+<a href="/createpost">
+<button class ="see-all center addpost">Add post</button>
+</a>
+</div>
 <div>
+
 <% @user_found_posts.each do |post|%>
     <a href=<%="/users/#{@user_to_find.id}/posts/#{post.id}" %>>
         <div>
@@ -42,6 +46,20 @@
                 <p class="counter">
                 Comments: <%=post.comments.count %> | Likes: <%=post.likes.count %> 
                 </p>
+                </div>
+            </div>
+            <div class="comment-like">
+                <div class="like">
+                    <%= form_with url: "/like", method: :post do |form| %>
+                        <%= form.hidden_field :post_id, value:post.id %>
+                        <%= form.hidden_field :author_id, value: ApplicationController.current_user.id %>
+                        <%= form.submit "Like" %>
+                    <% end %>
+                </div>
+                <div class="comment">
+                    <a href=<%="/loadcomment/#{post.id}"%>>
+                        <button>Comment </button>
+                    </a>
                 </div>
             </div>
         </div>

@@ -26,3 +26,8 @@
 .comments {
   margin-bottom: 1rem;
 }
+
+.comment-like {
+  display: flex;
+  gap: 1rem;
+}
