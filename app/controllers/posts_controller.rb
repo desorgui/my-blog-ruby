@@ -18,7 +18,7 @@ class PostsController < ApplicationController
   def new
     Post.new
   end
-  
+
   def create
     @post = ::ApplicationController.current_user.posts.new(post_params)
 
