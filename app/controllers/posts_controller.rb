@@ -16,6 +16,10 @@ class PostsController < ApplicationController
   end
 
   def new
+    Post.new
+  end
+
+  def create
     Post.create(title: params['title'], text: params['message'], author_id: params['author_id'])
     redirect_to '/'
   end
