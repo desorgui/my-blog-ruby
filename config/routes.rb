@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get "/createpost", to: "posts#loadpost"
   post "/new", to: "posts#create"
   get "/loadcomment/:id" , to: "comments#index"
-  post "/comment", to: "comments#comment"
+  post "/new-comment", to: "comments#create"
   post "/like", to: "likes#index"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

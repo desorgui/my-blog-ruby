@@ -1,11 +1,20 @@
 class CommentsController < ApplicationController
-  def index
-    @commented_post_id = params['id']
+  def create
+    @first_user = ::ApplicationController.current_user
+    @post = Post.find(params[:author_id])
+    @comment = Comment.new(comment_params)
+    @comment.author = @first_user
+    @comment.post = @post
+
+    if @comment.save
+      flash[:success] = 'Comment saved successfully'
+      redirect_to "/users/#{params[:author_id]}/posts"
+    else
+      flash.now[:error] = 'Error: Comment could not be saved'
+    end
   end
 
-  def comment
-    Comment.create(text: params['comment'], author_id: params['author_id'], post_id: params['post_id'])
-
-    redirect_to "/users/#{params['author_id']}/posts"
+  def comment_params
+    params.permit(:author, :post, :text)
   end
 end

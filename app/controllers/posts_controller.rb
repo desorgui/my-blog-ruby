@@ -18,9 +18,22 @@ class PostsController < ApplicationController
   def new
     Post.new
   end
-
+  
   def create
-    Post.create(title: params['title'], text: params['message'], author_id: params['author_id'])
-    redirect_to '/'
+    @post = ::ApplicationController.current_user.posts.new(post_params)
+
+    respond_to do |format|
+      if @post.save
+        format.html { redirect_to '/' }
+      else
+        format.html { render :new }
+      end
+    end
+  end
+
+  private
+
+  def post_params
+    params.require(:post).permit(:title, :text, :author_id)
   end
 end
