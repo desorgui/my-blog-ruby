@@ -8,6 +8,11 @@ Rails.application.routes.draw do
   get "/users/:id", to: "users#show"
   get "/users/:id/posts", to: "posts#index"
   get "/users/:id/posts/:id", to: "posts#show"
+  get "/createpost", to: "posts#loadpost"
+  post "/new", to: "posts#create"
+  get "/loadcomment/:id" , to: "comments#index"
+  post "/new-comment", to: "comments#create"
+  post "/like", to: "likes#index"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

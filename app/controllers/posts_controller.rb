@@ -14,4 +14,26 @@ class PostsController < ApplicationController
     @post = Post.find_by(id: param_id)
     @all_comments = Comment.where(post_id: param_id)
   end
+
+  def new
+    Post.new
+  end
+
+  def create
+    @post = ::ApplicationController.current_user.posts.new(post_params)
+
+    respond_to do |format|
+      if @post.save
+        format.html { redirect_to '/' }
+      else
+        format.html { render :new }
+      end
+    end
+  end
+
+  private
+
+  def post_params
+    params.require(:post).permit(:title, :text, :author_id)
+  end
 end
