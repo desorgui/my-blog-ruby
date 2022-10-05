@@ -1,23 +1,63 @@
 require 'rails_helper'
 
 RSpec.describe 'Posts and post page contents', type: :feature do
-  describe 'GET /po' do
-    before do
-      user = User.create(name: 'Kenobi', photo: 'https://media-exp1.licdn.com/dms/image/C5603AQEorOMBwfw12Q/profile-displayphoto-shrink_800_800/0/1658935548161?e=1669852800&v=beta&t=-oXG15LnHsYblzaPx9vJBJzDLxnH3x__asev4ezUv9g')
-      # Post.create(title: 'Breaking news', text: 'writing testing in rails', author_id: user.id, post_counter: 3,
-      #   likes_count: 4)
-      Post.create(title: 'hello', text: 'writing testing in rails', author_id: user.id)
-        
-      visit "/users/#{user.id}/posts"
-    end
-    it 'should have a post with title' do
-      expect(page).to have_text('hello')
-    end
-    it 'the page should a user username' do
-      expect(page).to have_text('Kenobi')
-    end
-    it 'should have a post with text' do
-      expect(page).to have_text('writing testing in rails')
-    end
+  before do
+    @user = User.create(name: 'Jeff', photo: 'https://unsplash.com/photos/F_-0BxGuVvo0', bio: 'Teacher from Mexico.')
+    first_post = Post.create(author:@user, title: 'Hello', text: 'This is my first post')
+    Post.create(author:@user, title: 'Breaking news', text: 'This is my first post')
+    Post.create(author:@user, title: 'Jocking', text: 'This is my second post')
+    Post.create(author:@user, title: 'Health', text: 'This is my third post')
+    Post.create(author:@user, title: 'Eating', text: 'This is my first post')
+    Post.create(author:@user, title: 'Selling', text: 'This is my fourth')
+
+    Comment.create(post: first_post, author:@user, text: 'Hi Tom!' )
+    Comment.create(post: first_post, author:@user, text: 'Hi Tom!' )
+    Comment.create(post: first_post, author:@user, text: 'Hi Lilly!' )
+    Comment.create(post: first_post, author:@user, text: 'Hi Lilly!' )
+    Comment.create(post: first_post, author:@user, text: 'Hi Desor!' )
+    Comment.create(post: first_post, author:@user, text: 'Hi Desor!' )
+    Comment.create(post: first_post, author:@user, text: 'Hi Desor!' )
+    Comment.create(post: first_post, author:@user, text: 'Hi Desor!' )
+
+    @post = Post.where(author_id:@user.id).last
+
+    visit "/users/#{@user.id}/posts"
+  end
+
+  it 'should see the user\'s profile picture' do
+    expect(page).to have_xpath("//img[contains(@src,'#{@user.photo}')]")
+  end
+
+  it 'should show the user\'s username' do
+    expect(page).to have_content(@user.name)
+  end
+
+  it 'should show the number of posts a user has written' do
+    expect(page).to have_content("Number of posts: #{@user.post_counter}")
+  end
+
+  it 'should show a post\'s title' do
+    expect(page).to have_content(@post.title)
+  end
+
+  it 'should show some of the post\'s body' do
+    expect(page).to have_content(@post.text)
+  end
+
+  it 'should show how many comments a post has' do
+    expect(page).to have_content(@post.comments_counter)
+  end
+
+  it 'should show how many likes a post has' do
+    expect(page).to have_content(@post.likes_counter)
+  end
+
+  it 'should show a section for pagination if there are more posts than fit on the view' do
+    expect(page).to have_content('Pagination')
+  end
+
+  it 'redirect to the post\'s show page when clicking on a post' do
+    click_on @post.title
+    expect(current_path).to eq("/users/#{@user.id}/posts/#{@post.id}")
   end
 end

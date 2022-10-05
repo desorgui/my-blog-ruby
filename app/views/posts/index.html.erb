@@ -37,6 +37,7 @@
                   </p>
                 </div>
                 <div class="comment-like">
+
                 <div class="like">
                   <%= form_with url: "/like", method: :post do |form| %>
                   <%= form.hidden_field :post_id, value:post.id %>
@@ -50,6 +51,7 @@
                   </a>
                 </div>
               </div>
+
               </div>
               <ul class="border-2 comments">
                 <% post.recent_comments.includes(:author).each do |comment| %>
@@ -66,5 +68,5 @@
 </ul>
 
 <div class="btn">
-<button class="see-all center">pagination </button>
+<button class="see-all center">Pagination </button>
 </div>
