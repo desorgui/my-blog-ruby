@@ -12,15 +12,10 @@ RSpec.describe 'Posts and post page contents', type: :feature do
 
     Comment.create(post: first_post, author: @user, text: 'Hi Tom!')
     Comment.create(post: first_post, author: @user, text: 'Hi Tom!')
-    Comment.create(post: first_post, author: @user, text: 'Hi Lilly!')
-    Comment.create(post: first_post, author: @user, text: 'Hi Lilly!')
-    Comment.create(post: first_post, author: @user, text: 'Hi Desor!')
-    Comment.create(post: first_post, author: @user, text: 'Hi Desor!')
-    Comment.create(post: first_post, author: @user, text: 'Hi Desor!')
-    Comment.create(post: first_post, author: @user, text: 'Hi Desor!')
 
-    @post = Post.where(author_id: @user.id).last
-
+    @post = Post.where(author_id: @user.id).first
+    @comment = @post.recent_comments
+    put @comment
     visit "/users/#{@user.id}/posts"
   end
 
@@ -42,6 +37,10 @@ RSpec.describe 'Posts and post page contents', type: :feature do
 
   it 'should show some of the post\'s body' do
     expect(page).to have_content(@post.text)
+  end
+
+  it 'should show the first comments on a post' do
+    expect(page).to have_content(@comment[0].text)
   end
 
   it 'should show how many comments a post has' do
