@@ -8,5 +8,5 @@
   <%= form.text_area :message, size: "80x7"  %>
   <br/><br/>
   <%= form.hidden_field :author_id, value: ApplicationController.current_user.id %>
-  <%= form.submit "Post" %>
+  <%= form.submit "Post", class: "btn-cl" %>
 <% end %>
