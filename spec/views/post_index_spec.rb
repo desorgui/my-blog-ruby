@@ -3,23 +3,23 @@ require 'rails_helper'
 RSpec.describe 'Posts and post page contents', type: :feature do
   before do
     @user = User.create(name: 'Jeff', photo: 'https://unsplash.com/photos/F_-0BxGuVvo0', bio: 'Teacher from Mexico.')
-    first_post = Post.create(author:@user, title: 'Hello', text: 'This is my first post')
-    Post.create(author:@user, title: 'Breaking news', text: 'This is my first post')
-    Post.create(author:@user, title: 'Jocking', text: 'This is my second post')
-    Post.create(author:@user, title: 'Health', text: 'This is my third post')
-    Post.create(author:@user, title: 'Eating', text: 'This is my first post')
-    Post.create(author:@user, title: 'Selling', text: 'This is my fourth')
+    first_post = Post.create(author: @user, title: 'Hello', text: 'This is my first post')
+    Post.create(author: @user, title: 'Breaking news', text: 'This is my first post')
+    Post.create(author: @user, title: 'Jocking', text: 'This is my second post')
+    Post.create(author: @user, title: 'Health', text: 'This is my third post')
+    Post.create(author: @user, title: 'Eating', text: 'This is my first post')
+    Post.create(author: @user, title: 'Selling', text: 'This is my fourth')
 
-    Comment.create(post: first_post, author:@user, text: 'Hi Tom!' )
-    Comment.create(post: first_post, author:@user, text: 'Hi Tom!' )
-    Comment.create(post: first_post, author:@user, text: 'Hi Lilly!' )
-    Comment.create(post: first_post, author:@user, text: 'Hi Lilly!' )
-    Comment.create(post: first_post, author:@user, text: 'Hi Desor!' )
-    Comment.create(post: first_post, author:@user, text: 'Hi Desor!' )
-    Comment.create(post: first_post, author:@user, text: 'Hi Desor!' )
-    Comment.create(post: first_post, author:@user, text: 'Hi Desor!' )
+    Comment.create(post: first_post, author: @user, text: 'Hi Tom!')
+    Comment.create(post: first_post, author: @user, text: 'Hi Tom!')
+    Comment.create(post: first_post, author: @user, text: 'Hi Lilly!')
+    Comment.create(post: first_post, author: @user, text: 'Hi Lilly!')
+    Comment.create(post: first_post, author: @user, text: 'Hi Desor!')
+    Comment.create(post: first_post, author: @user, text: 'Hi Desor!')
+    Comment.create(post: first_post, author: @user, text: 'Hi Desor!')
+    Comment.create(post: first_post, author: @user, text: 'Hi Desor!')
 
-    @post = Post.where(author_id:@user.id).last
+    @post = Post.where(author_id: @user.id).last
 
     visit "/users/#{@user.id}/posts"
   end
