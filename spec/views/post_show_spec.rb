@@ -3,11 +3,11 @@ require 'rails_helper'
 RSpec.describe 'single post page contents', type: :feature do
   before do
     @user = User.create(name: 'Jeff', photo: 'https://unsplash.com/photos/F_-0BxGuVvo0', bio: 'Teacher from Mexico.')
-    post = Post.create(author: @user, title: 'Hello', text: 'This is my first post')
-    Comment.create(post: post, author: @user, text: 'Hi Desor!')
+    post1 = Post.create(author: @user, title: 'Hello', text: 'This is my first post')
+    Comment.create(post: post1, author: @user, text: 'Hi Desor!')
 
     @post = Post.where(author_id: @user.id).first
-    @comment = Comment.where(post_id: post.id).first
+    @comment = Comment.where(post_id: post1.id).first
 
     visit "/users/#{@user.id}/posts/#{@post.id}"
   end

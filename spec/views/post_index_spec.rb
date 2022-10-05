@@ -15,7 +15,7 @@ RSpec.describe 'Posts and post page contents', type: :feature do
 
     @post = Post.where(author_id: @user.id).first
     @comment = @post.recent_comments
-    put @comment
+
     visit "/users/#{@user.id}/posts"
   end
 
