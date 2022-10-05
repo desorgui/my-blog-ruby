@@ -18,8 +18,8 @@ class Post < ApplicationRecord
     author.increment!(:post_counter)
   end
 
-  def five_most_recent_comments
-    comments.order(updated_at: :desc).first(5)
+  def recent_comments
+    Comment.where(post_id: self).order('created_at DESC').limit(1)
   end
 
   private :update_post_counter

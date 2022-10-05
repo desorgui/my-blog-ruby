@@ -1,9 +1,9 @@
-<div class="single-user bordered">
+<div class="post border-2">
   <div class="single-post">
       <p>Post#<%=@post.id%> by <%=@user_found.name %></p>
       <div>
         <p class="counter">|  
-        Likes: <%=@post.comments.count %>
+        Likes: <%=@post.likes.count %>
         </p>
         <p class="counter">
         Comments: <%=@post.comments.count %>
@@ -13,15 +13,32 @@
 
 
   <div>
-      <p class="user-name">
+  <p class="post-text">
+        <%=@post.title %>
+      </p>
+      <p class="post-text">
         <%=@post.text %>
       </p>
+      <div class="comment-like">
+                  <div class="like">
+                    <%= form_with url: "/like", method: :post do |form| %>
+                    <%= form.hidden_field :post_id, value:@post.id %>
+                    <%= form.hidden_field :author_id, value: ApplicationController.current_user.id %>
+                    <%= form.submit "Like", class: "btn-cl" %>
+                    <% end %>
+                  </div>
+                  <div class="comment">
+                    <a href=<%="/loadcomment/#{@post.id}"%>>
+                      <button class="btn-cl">Comment </button>
+                    </a>
+                  </div>
+                </div>
   </div>
 
 </div>
 
 
-<ul class="bordered">
+<ul class="border-2">
   <% @all_comments.each do |comment| %>
       <li>
         <%=@user_found.name %>: <%=comment.text %> 

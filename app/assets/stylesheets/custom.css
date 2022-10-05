@@ -8,7 +8,8 @@
   width: 4rem;
 }
 
-.user-name {
+.user-name,
+.post-text {
   font-size: 1.5rem;
   font-weight: 600;
 }
@@ -21,6 +22,8 @@
 
 .single-post {
   padding-bottom: 0;
+  display: block;
+  margin-bottom: 1.2rem;
 }
 
 .comments {

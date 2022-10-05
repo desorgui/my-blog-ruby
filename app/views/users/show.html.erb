@@ -1,24 +1,24 @@
 <li>
   <div class="profile">
-      <img class="img-profile" src=<%= @user_to_find.photo  %> alt='ooops'/>
+      <img class="img-profile" src=<%= @user.photo  %> alt='ooops'/>
   </div>
 
-  <div class="single-user bordered">
+  <div class="user border-2">
       <p class="user-name">
-      user Name: <%=@user_to_find.name %>
+      user Name: <%=@user.name %>
       </p>
       <div>
       <p class="counter">
-      Number of posts: <%=@user_to_find.posts.count %>
+      Number of posts: <%=@user.posts.count %>
       </p>
       </div>
   </div>
 </li>
 
-<div class=" bordered bio">
+<div class="border-2 bio">
   <h3>Bio</h3>
   <p class="bio">
-  <%=@user_to_find.bio %>
+  <%=@user.bio %>
   </p>
 </div>
 
@@ -29,10 +29,10 @@
 </div>
 <div>
 
-<% @user_found_posts.each do |post|%>
-    <a href=<%="/users/#{@user_to_find.id}/posts/#{post.id}" %>>
+<% @user.last_three_posts.includes(:author).each do |post|%>
+    <a href=<%="/users/#{@user.id}/posts/#{post.id}" %>>
         <div>
-            <div class="single-user-post bordered">
+            <div class="user-post border-2">
                 <div>
                 <p>Post#<%=post.id%> </p>
                     <p class="post-title">
@@ -53,12 +53,12 @@
                     <%= form_with url: "/like", method: :post do |form| %>
                         <%= form.hidden_field :post_id, value:post.id %>
                         <%= form.hidden_field :author_id, value: ApplicationController.current_user.id %>
-                        <%= form.submit "Like" %>
+                        <%= form.submit "Like", class: "btn-cl" %>
                     <% end %>
                 </div>
                 <div class="comment">
                     <a href=<%="/loadcomment/#{post.id}"%>>
-                        <button>Comment </button>
+                        <button class="btn-cl">Comment </button>
                     </a>
                 </div>
             </div>
@@ -67,5 +67,5 @@
 <% end %>
 </div>
 <div class="btn">
-<a href=<%="/users/#{@user_to_find.id}/posts" %>><button class="see-all center">See all posts </button></a>
+<a href=<%="/users/#{@user.id}/posts" %>><button class="see-all center" id="all-posts">See all posts </button></a>
 </div>
