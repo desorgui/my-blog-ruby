@@ -12,6 +12,6 @@ class User < ApplicationRecord
   end
 
   def last_three_posts
-    Post.where(author: self).order(updated_at: :desc).first(3)
+    Post.where(author_id: self).order('created_at DESC').limit(3)
   end
 end

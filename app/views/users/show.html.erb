@@ -1,15 +1,15 @@
 <li>
   <div class="profile">
-      <img class="img-profile" src=<%= @user_to_find.photo  %> alt='ooops'/>
+      <img class="img-profile" src=<%= @user.photo  %> alt='ooops'/>
   </div>
 
   <div class="user border-2">
       <p class="user-name">
-      user Name: <%=@user_to_find.name %>
+      user Name: <%=@user.name %>
       </p>
       <div>
       <p class="counter">
-      Number of posts: <%=@user_to_find.posts.count %>
+      Number of posts: <%=@user.posts.count %>
       </p>
       </div>
   </div>
@@ -18,7 +18,7 @@
 <div class="border-2 bio">
   <h3>Bio</h3>
   <p class="bio">
-  <%=@user_to_find.bio %>
+  <%=@user.bio %>
   </p>
 </div>
 
@@ -29,8 +29,8 @@
 </div>
 <div>
 
-<% @user_posts.each do |post|%>
-    <a href=<%="/users/#{@user_to_find.id}/posts/#{post.id}" %>>
+<% @user.last_three_posts.includes(:author).each do |post|%>
+    <a href=<%="/users/#{@user.id}/posts/#{post.id}" %>>
         <div>
             <div class="user-post border-2">
                 <div>
@@ -67,5 +67,5 @@
 <% end %>
 </div>
 <div class="btn">
-<a href=<%="/users/#{@user_to_find.id}/posts" %>><button class="see-all center">See all posts </button></a>
+<a href=<%="/users/#{@user.id}/posts" %>><button class="see-all center">See all posts </button></a>
 </div>

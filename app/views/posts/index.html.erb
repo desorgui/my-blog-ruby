@@ -23,7 +23,7 @@
           <li class="single-post">
               <div class="user border-2">
                 <div>
-                  <p>Post#<%=post.id%> </p>
+                  <p>Post #<%=post.id%> </p>
                     <p class="post-title">
                     Title: <%=post.title %>
                     </p>
@@ -51,17 +51,17 @@
                 </div>
               </div>
               </div>
+              <ul class="border-2 comments">
+                <% post.recent_comments.includes(:author).each do |comment| %>
+                  <%  if comment.post_id == post.id %>
+                    <li>
+                      <%=@single_user.name %>: <%=comment.text %> 
+                    </li>
+                  <% end %>
+                <% end %>
+              </ul>
           </li>
       </a>
-    <ul class="border-2 comments">
-        <% @all_comments.each do |comment| %>
-          <%  if comment.post_id == post.id %>
-            <li>
-              <%=@single_user.name %>: <%=comment.text %> 
-            </li>
-          <% end %>
-        <% end %>
-    </ul>
   <% end %>
 </ul>
 
