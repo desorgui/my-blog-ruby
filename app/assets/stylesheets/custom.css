@@ -8,7 +8,8 @@
   width: 4rem;
 }
 
-.user-name {
+.user-name,
+.post-text {
   font-size: 1.5rem;
   font-weight: 600;
 }

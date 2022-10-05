@@ -40,12 +40,13 @@ li {
   padding-bottom: 0.5rem;
 }
 
-.bordered {
+.border-2 {
   border: 2px solid gray;
 }
 
-.single-user-post,
-.single-user {
+.post,
+.user-post,
+.user {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -53,7 +54,7 @@ li {
   padding: 0 1rem;
 }
 
-.single-user-post {
+.user-post {
   padding: 1rem;
   margin: 0.5rem 0;
 }
@@ -62,7 +63,8 @@ li {
   margin-bottom: 1rem;
 }
 
-.user-name {
+.user-name,
+.post-text {
   margin: 15px;
 }
 

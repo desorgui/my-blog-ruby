@@ -1,14 +1,14 @@
 <h1>List of all user</h1>
 
-<div>
+<div id="users-container">
 <% @users.each do |user|%>
-    <a href=<%="/users/#{user.id}" %>>
+    <a href=<%="/users/#{user.id}" %> id=<%="user#{user.id}"%>>
         <div class="container">
             <div class="profile">
-                <img class="img-profile" src=<%= user.photo  %> alt='ooops'/>
+                <img class="img-profile" src=<%= user.photo  %> id=<%="img#{user.id}" %> alt='ooops'/>
             </div>
 
-            <div class="single-user bordered">
+            <div class="user border-2">
                 <p class="user-name">
                 user Name: <%=user.name %>
                 </p>

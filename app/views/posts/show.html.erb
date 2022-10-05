@@ -1,4 +1,4 @@
-<div class="single-user bordered">
+<div class="post border-2">
   <div class="single-post">
       <p>Post#<%=@post.id%> by <%=@user_found.name %></p>
       <div>
@@ -13,7 +13,7 @@
 
 
   <div>
-      <p class="user-name">
+      <p class="post-text">
         <%=@post.text %>
       </p>
   </div>
@@ -21,7 +21,7 @@
 </div>
 
 
-<ul class="bordered">
+<ul class="border-2">
   <% @all_comments.each do |comment| %>
       <li>
         <%=@user_found.name %>: <%=comment.text %> 

@@ -3,7 +3,7 @@
       <img class="img-profile" src=<%= @user_to_find.photo  %> alt='ooops'/>
   </div>
 
-  <div class="single-user bordered">
+  <div class="user border-2">
       <p class="user-name">
       user Name: <%=@user_to_find.name %>
       </p>
@@ -15,7 +15,7 @@
   </div>
 </li>
 
-<div class=" bordered bio">
+<div class="border-2 bio">
   <h3>Bio</h3>
   <p class="bio">
   <%=@user_to_find.bio %>
@@ -29,10 +29,10 @@
 </div>
 <div>
 
-<% @user_found_posts.each do |post|%>
+<% @user_posts.each do |post|%>
     <a href=<%="/users/#{@user_to_find.id}/posts/#{post.id}" %>>
         <div>
-            <div class="single-user-post bordered">
+            <div class="user-post border-2">
                 <div>
                 <p>Post#<%=post.id%> </p>
                     <p class="post-title">

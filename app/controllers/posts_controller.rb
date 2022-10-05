@@ -1,8 +1,8 @@
 class PostsController < ApplicationController
   def index
     param_id = params['id'].to_i
-    @single_user_found = User.find_by(id: param_id)
-    @user_found_posts = Post.where(author_id: param_id)
+    @single_user = User.find_by(id: param_id)
+    @user_posts = Post.where(author_id: param_id)
     @all_comments = Comment.all
   end
 
