@@ -21,10 +21,6 @@ class Post < ApplicationRecord
   def recent_comments
     Comment.where(post_id: self).order('created_at DESC').limit(5)
   end
-
-  # def five_most_recent_comments
-  #   comments.order(updated_at: :desc).first(5)
-  # end
-
+  
   private :update_post_counter
 end
