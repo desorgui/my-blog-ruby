@@ -13,6 +13,9 @@
 
 
   <div>
+  <p class="post-text">
+        <%=@post.title %>
+      </p>
       <p class="post-text">
         <%=@post.text %>
       </p>
@@ -21,12 +24,12 @@
                     <%= form_with url: "/like", method: :post do |form| %>
                     <%= form.hidden_field :post_id, value:@post.id %>
                     <%= form.hidden_field :author_id, value: ApplicationController.current_user.id %>
-                    <%= form.submit "Like" %>
+                    <%= form.submit "Like", class: "btn-cl" %>
                     <% end %>
                   </div>
                   <div class="comment">
                     <a href=<%="/loadcomment/#{@post.id}"%>>
-                      <button>Comment </button>
+                      <button class="btn-cl">Comment </button>
                     </a>
                   </div>
                 </div>

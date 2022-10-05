@@ -37,6 +37,7 @@
                   </p>
                 </div>
                 <div class="comment-like">
+<<<<<<< HEAD
                   <div class="like">
                     <%= form_with url: "/like", method: :post do |form| %>
                     <%= form.hidden_field :post_id, value:post.id %>
@@ -50,6 +51,21 @@
                     </a>
                   </div>
                 </div>
+=======
+                <div class="like">
+                  <%= form_with url: "/like", method: :post do |form| %>
+                  <%= form.hidden_field :post_id, value:post.id %>
+                  <%= form.hidden_field :author_id, value: ApplicationController.current_user.id %>
+                  <%= form.submit "Like", class: "btn-cl" %>
+                  <% end %>
+                </div>
+                <div class="comment">
+                  <a href=<%="/loadcomment/#{post.id}"%>>
+                    <button  class="btn-cl">Comment </button>
+                  </a>
+                </div>
+              </div>
+>>>>>>> 6e22f5f88624212d35b82095ceaf187989235d63
               </div>
               <ul class="border-2 comments">
                 <% post.recent_comments.includes(:author).each do |comment| %>
