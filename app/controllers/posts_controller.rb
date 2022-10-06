@@ -3,7 +3,6 @@ class PostsController < ApplicationController
     param_id = params['id'].to_i
     @single_user = User.find_by(id: param_id)
     @user_posts = Post.where(author_id: param_id)
-    @all_comments = Comment.all
   end
 
   def show
@@ -20,7 +19,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = ::ApplicationController.current_user.posts.new(post_params)
+    @post = current_user.posts.new(post_params)
 
     respond_to do |format|
       if @post.save

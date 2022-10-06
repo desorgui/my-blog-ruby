@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   def create
-    @first_user = ::ApplicationController.current_user
+    @first_user = current_user
     @post = Post.find(params[:author_id])
     @comment = Comment.new(comment_params)
     @comment.author = @first_user
