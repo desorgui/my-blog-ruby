@@ -30,6 +30,9 @@
                     <p class="post-description">
                     Description: <%=post.text %>
                     </p>
+                    <% if can.present? %>
+                <div class="delete-btn"><button>Delete</button></div>
+                <%end%>
                 </div>
                 <div>
                   <p class="counter">

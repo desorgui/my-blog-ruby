@@ -41,7 +41,12 @@
 <ul class="border-2">
   <% @all_comments.each do |comment| %>
       <li>
+      <p>
         <%=@user_found.name %>: <%=comment.text %> 
+        </p>
+        <% if can.present? %>
+                <div class="delete-btn"><button>Delete</button></div>
+                <%end%>
       </li>
   <% end %>
 </ul>

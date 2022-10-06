@@ -47,6 +47,9 @@
                 Comments: <%=post.comments.count %> | Likes: <%=post.likes.count %> 
                 </p>
                 </div>
+                <% if can.present? %>
+                <div class="delete-btn"><button>Delete</button></div>
+                <%end%>
             </div>
             <div class="comment-like">
                 <div class="like">
