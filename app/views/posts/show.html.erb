@@ -49,10 +49,15 @@
   <% @all_comments.each do |comment| %>
       <li>
       <p>
-        <%=@user_found.name %>: <%=comment.text %> 
+        <%=current_user.name %>: <%=comment.text %> 
         </p>
         <% if can? :destroy, comment %>
-          <div class="delete-btn"><button>Delete</button></div>
+          <%= form_with url: "/deletecomment", method: :post do |form| %>
+          <%= form.hidden_field :post_id, value:comment.post_id %>
+          <%= form.hidden_field :comment_id, value:comment.id %>
+          <%= form.hidden_field :author_id, value: current_user.id %>
+          <%= form.submit "Delete", class: "btn-cl" %>
+          <% end %>
         <%end%>
       </li>
   <% end %>

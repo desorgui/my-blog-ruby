@@ -19,11 +19,11 @@ class PostsController < ApplicationController
   end
 
   def delete
-    Comment.destroy_by(post_id:  params['post_id'])
-    Like.destroy_by(post_id:  params['post_id'])
+    Comment.destroy_by(post_id: params['post_id'])
+    Like.destroy_by(post_id: params['post_id'])
     Post.destroy_by(id: params['post_id'])
     user = User.find_by(id: params['author_id'])
-    user.update(post_counter: (user.post_counter-1))
+    user.update(post_counter: (user.post_counter - 1))
 
     redirect_to '/'
   end

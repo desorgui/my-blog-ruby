@@ -19,7 +19,7 @@ class Post < ApplicationRecord
     Comment.where(post_id: self).order('created_at DESC').limit(1)
   end
 
-  private  
+  private
 
   def increment_post_counter
     author.increment!(:post_counter)
