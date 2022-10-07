@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get "/loadcomment/:id" , to: "comments#index"
   post "/new-comment", to: "comments#create"
   post "/like", to: "likes#index"
+  post "/deletepost", to: "posts#delete"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

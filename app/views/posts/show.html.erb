@@ -20,22 +20,28 @@
         <%=@post.text %>
       </p>
       <div class="comment-like">
-                  <div class="like">
-                    <%= form_with url: "/like", method: :post do |form| %>
-                    <%= form.hidden_field :post_id, value:@post.id %>
-                    <%= form.hidden_field :author_id, value: current_user.id %>
-                    <%= form.submit "Like", class: "btn-cl" %>
-                    <% end %>
-                  </div>
-                  <div class="comment">
-                    <a href=<%="/loadcomment/#{@post.id}"%>>
-                      <button class="btn-cl">Comment </button>
-                    </a>
-                  </div>
-                  <% if can? :destroy, @post %>
-                      <div class="delete-btn"><button>Delete</button></div>
-                    <%end%>
-                </div>
+        <div class="like">
+          <%= form_with url: "/like", method: :post do |form| %>
+          <%= form.hidden_field :post_id, value:@post.id %>
+          <%= form.hidden_field :author_id, value: current_user.id %>
+          <%= form.submit "Like", class: "btn-cl" %>
+          <% end %>
+        </div>
+        <div class="comment">
+          <a href=<%="/loadcomment/#{@post.id}"%>>
+            <button class="btn-cl">Comment </button>
+          </a>
+        </div>
+        <% if can? :destroy, @post %>
+              <% if can? :destroy, post %>
+          <%= form_with url: "/deletepost", method: :post do |form| %>
+          <%= form.hidden_field :post_id, value:post.id %>
+          <%= form.hidden_field :author_id, value: current_user.id %>
+          <%= form.submit "Delete", class: "btn-cl" %>
+          <% end %>
+          </div>
+          <%end%>
+      </div>
   </div>
 
 </div>

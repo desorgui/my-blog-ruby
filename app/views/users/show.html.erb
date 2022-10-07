@@ -48,7 +48,12 @@
                 </p>
                 </div>
                 <% if can? :destroy, post %>
-                  <div class="delete-btn"><button>Delete</button></div>
+                    <%= form_with url: "/deletepost", method: :post do |form| %>
+                    <%= form.hidden_field :post_id, value:post.id %>
+                    <%= form.hidden_field :author_id, value: current_user.id %>
+                    <%= form.submit "Delete", class: "btn-cl" %>
+                <% end %>
+                </div>
                 <%end%>
             </div>
             <div class="comment-like">
