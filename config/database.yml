@@ -14,22 +14,39 @@
 # Configure Using Gemfile
 # gem "pg"
 #
+# default: &default
+#   adapter: postgresql
+#   encoding: unicode
+#   host: localhost
+#   username: postgres
+#   password: jesulamo@1995
+
+# Joffrey
 default: &default
   adapter: postgresql
   encoding: unicode
   host: localhost
-  username: postgres
-  password: jesulamo@1995
+  username: joffrey
+  password: Joffrey579*
 
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
+# development:
+#   <<: *default
+#   database: my_blog_ruby_development
+#   username: postgres
+#   password: jesulamo@1995
+
+
+# Joffrey
 development:
   <<: *default
   database: my_blog_ruby_development
-  username: postgres
-  password: jesulamo@1995
+  username: joffrey
+  password: Joffrey579*
+
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -62,11 +79,20 @@ development:
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 
+# test:
+#   <<: *default
+#   database: my_blog_ruby_test
+#   username: postgres
+#   password: jesulamo@1995
+
+
+# Joffrey
 test:
   <<: *default
   database: my_blog_ruby_test
-  username: postgres
-  password: jesulamo@1995
+  username: joffrey
+  password: Joffrey579*
+
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -88,8 +114,15 @@ test:
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
 #
+# production:
+#   <<: *default
+#   database: my_blog_ruby_production
+#   username: postgres
+#   password: jesulamo@1995
+
+
 production:
   <<: *default
   database: my_blog_ruby_production
-  username: postgres
-  password: jesulamo@1995
+  username: joffrey
+  password: Joffrey579*
