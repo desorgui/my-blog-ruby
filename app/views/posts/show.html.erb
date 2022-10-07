@@ -33,14 +33,12 @@
           </a>
         </div>
         <% if can? :destroy, @post %>
-              <% if can? :destroy, post %>
           <%= form_with url: "/deletepost", method: :post do |form| %>
-          <%= form.hidden_field :post_id, value:post.id %>
+          <%= form.hidden_field :post_id, value:@post.id %>
           <%= form.hidden_field :author_id, value: current_user.id %>
           <%= form.submit "Delete", class: "btn-cl" %>
           <% end %>
-          </div>
-          <%end%>
+        <%end%>
       </div>
   </div>
 

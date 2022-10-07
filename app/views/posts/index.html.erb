@@ -30,8 +30,7 @@
                     <p class="post-description">
                     Description: <%=post.text %>
                     </p>
-                    <% if can? :destroy, comment %>
-                         <% if can? :destroy, post %>
+                      <% if can? :destroy, post %>
                           <%= form_with url: "/deletepost", method: :post do |form| %>
                           <%= form.hidden_field :post_id, value:post.id %>
                           <%= form.hidden_field :author_id, value: current_user.id %>
@@ -67,7 +66,6 @@
                     <li>
                       <%=@single_user.name %>: <%=comment.text %> 
                       <% if can? :destroy, comment %>
-                         <% if can? :destroy, post %>
                           <%= form_with url: "/deletecomment", method: :post do |form| %>
                           <%= form.hidden_field :post_id, value:post.id %>
                           <%= form.hidden_field :author_id, value: current_user.id %>
