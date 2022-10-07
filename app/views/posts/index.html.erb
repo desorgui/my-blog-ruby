@@ -30,9 +30,9 @@
                     <p class="post-description">
                     Description: <%=post.text %>
                     </p>
-                    <% if can.present? %>
-                <div class="delete-btn"><button>Delete</button></div>
-                <%end%>
+                    <% if can? :destroy, post %>
+                      <div class="delete-btn"><button>Delete</button></div>
+                    <%end%>
                 </div>
                 <div>
                   <p class="counter">
@@ -61,6 +61,9 @@
                   <%  if comment.post_id == post.id %>
                     <li>
                       <%=@single_user.name %>: <%=comment.text %> 
+                      <% if can? :destroy, comment %>
+                        <div class="delete-btn"><button>Delete</button></div>
+                      <%end%>
                     </li>
                   <% end %>
                 <% end %>

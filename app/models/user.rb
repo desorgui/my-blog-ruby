@@ -9,10 +9,15 @@ class User < ApplicationRecord
   # has_many :most_recent_posts, -> { order('created_at DESC').limit(2) }, class_name: 'Post'
 
   # validates :name, presence: true
+  validates :email, confirmation: true
   validates_numericality_of :post_counter, greater_than_or_equal_to: 0
 
   after_initialize do |user|
     user.post_counter = 0
+  end
+
+  def admin?
+    role == 'admin'
   end
 
   def last_three_posts
