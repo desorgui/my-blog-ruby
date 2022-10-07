@@ -47,6 +47,14 @@
                 Comments: <%=post.comments.count %> | Likes: <%=post.likes.count %> 
                 </p>
                 </div>
+                <% if can? :destroy, post %>
+                    <%= form_with url: "/deletepost", method: :post do |form| %>
+                    <%= form.hidden_field :post_id, value:post.id %>
+                    <%= form.hidden_field :author_id, value: current_user.id %>
+                    <%= form.submit "Delete", class: "btn-cl" %>
+                <% end %>
+                </div>
+                <%end%>
             </div>
             <div class="comment-like">
                 <div class="like">

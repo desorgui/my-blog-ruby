@@ -21,16 +21,6 @@ default: &default
   username: postgres
   password: jesulamo@1995
 
-
-# Joffrey
-# default: &default
-#   adapter: postgresql
-#   encoding: unicode
-#   host: localhost
-#   username: joffrey
-#   password: Joffrey579*
-
-
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
@@ -40,13 +30,6 @@ development:
   database: my_blog_ruby_development
   username: postgres
   password: jesulamo@1995
-
-# Joffrey
-# development:
-#   <<: *default
-#   database: my_blog_ruby_development
-#   username: joffrey
-#   password: Joffrey579*
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -85,15 +68,6 @@ test:
   username: postgres
   password: jesulamo@1995
 
-# Joffrey
-# test:
-#   <<: *default
-#   database: my_blog_ruby_test
-#   username: joffrey
-#   password: Joffrey579*
-
-
-
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
 # ever seen by anyone, they now have access to your database.
@@ -119,10 +93,3 @@ production:
   database: my_blog_ruby_production
   username: postgres
   password: jesulamo@1995
-
-# Joffrey
-# production:
-#   <<: *default
-#   database: my_blog_ruby_production
-#   username: joffrey
-#   password: Joffrey579*
