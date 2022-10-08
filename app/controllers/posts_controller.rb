@@ -3,6 +3,9 @@ class PostsController < ApplicationController
     param_id = params['id'].to_i
     @single_user = User.find_by(id: param_id)
     @user_posts = Post.where(author_id: param_id)
+    respond_to do |format|
+      format.html { render :index }
+    end
   end
 
   def show
