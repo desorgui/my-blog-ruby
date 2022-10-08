@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get "/users", to: "users#index"
   get "/users/:id", to: "users#show"
   get "/users/:id/posts", to: "posts#index"
-  get "/users/:id/posts/:id", to: "posts#show"
+  get "/users/:id/posts/:post_id", to: "posts#show"
   get "/createpost", to: "posts#loadpost"
   post "/new", to: "posts#create"
   get "/loadcomment/:id" , to: "comments#index"
@@ -20,8 +20,19 @@ Rails.application.routes.draw do
   post "/deletepost", to: "posts#delete"
   post "/deletecomment", to: "comments#remove"
 
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
+  get "api/v1/users/:user_id/posts", to: "api/v1/posts#index"
+  get "api/v1/users/:user_id/posts/:post_id/comments", to: "api/v1/comments#index"
+  post "api/v1/users/:user_id/posts/:post_id/comment", to: "api/v1/comments#create" 
+  get "/api/v1/users/:user_id/posts/:post_id/comments/new", to: "api/v1/comments#new"
+  post "api/v1/users/new-comments", to: "api/v1/comments#create"
+  # namespace :api do
+  #   namespace :v1 do
+  #     resources :users, only: [:index] do
+  #         resources :posts, only: [:index], format: :json do
+  #           resources :comments, only: %i[index new create], format: :json
+  #          resources :likes, only: [:create]
+  #        end
+  #     end
+  #   end
+  # end
 end
