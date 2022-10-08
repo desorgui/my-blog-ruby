@@ -1,5 +1,4 @@
-class Api::V1::CommentsController < ApplicationController
-  skip_before_action :verify_authenticity_token
+class Api::V1::CommentsController < ApplicationController 
   before_action :set_post, only: %i[index new]
 
   def index    
@@ -14,8 +13,8 @@ class Api::V1::CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.create(text: params[:text], author_id: params[:user_id], post_id: params[:post_id])
-    redirect_to "/api/v1/users/#{current_user.id}/posts/#{params[:post_id]}/comments"
+    @comment = Comment.create(author_id: current_user.id, post_id: params[:post_id], text: params[:text])
+    render json: @comment
   end
 
   private
