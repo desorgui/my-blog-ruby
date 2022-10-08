@@ -20,6 +20,26 @@ Rails.application.routes.draw do
   post "/deletepost", to: "posts#delete"
   post "/deletecomment", to: "comments#remove"
 
+  # get "/api/posts", to: "posts#listposts"
+
+  # namespace :api do
+  #   namespace :v1 do
+  #     resources :users, only: [:index, :show]
+  #   end
+  # end
+
+  namespace :api do
+    namespace :v1 do
+      # post '/login', to: 'authentication#login'
+
+      resources :users, only: [:index, :show] do
+        resources :posts, only: [:index, :show] do
+          resources :comments, only: [:create, :index]
+        end
+      end
+    end
+  end
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

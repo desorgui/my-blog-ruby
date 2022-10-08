@@ -13,6 +13,9 @@ class PostsController < ApplicationController
     @post = Post.find_by(id: param_id)
     @all_comments = Comment.where(post_id: param_id)
   end
+  def listposts
+    render :json => User.all
+  end
 
   def new
     Post.new
@@ -39,6 +42,8 @@ class PostsController < ApplicationController
       end
     end
   end
+
+  
 
   private
 
