@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   def index
     @commented_post_id = params['id']
+    @comments = Comment.where(post_id: params[:id]).order('created_at DESC')
   end
 
   def create
