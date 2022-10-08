@@ -1,5 +1,4 @@
 class CommentsController < ApplicationController
-  
   def index
     @commented_post_id = params['id']
     @comments = Comment.where(post_id: params[:id]).order('created_at DESC')
@@ -22,6 +21,4 @@ class CommentsController < ApplicationController
   def comment_params
     params.permit(:author, :post, :text)
   end
-
-
 end
