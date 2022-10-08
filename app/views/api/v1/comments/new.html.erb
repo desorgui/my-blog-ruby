@@ -1,8 +1,12 @@
 <%# Expected form to be loaded with succesfull API endpoint 'http://localhost:3000/api/v1/users/:user_id/posts/:post_id/comments/new' %>
+<<<<<<< HEAD
 <%= form_with scope: :comment, url: "/api/v1/users/#{current_user.id}/posts/#{@post_id}/comment", method: :post, local: true do |f| %>
+=======
+<%= form_with url: "/api/v1/users/#{@user.id}/posts/#{@post.id}/comment", method: :post do |f| %>
+>>>>>>> 0514e99e17fcbba6bba8e9c9de3667b6ce800ec5
   <div class="section center">
     <%= f.label :text, 'Comment', class: "label" %>
     <%= f.text_area :text, size: "50x5"%>
-    <%= f.submit "Create comment", class: "back-link" %>
+    <%= f.submit "comment", class: "back-link" %>
   </div>
 <% end %>
