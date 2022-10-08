@@ -1,9 +1,7 @@
 class CommentsController < ApplicationController
-  # before_action :set_post, only: [:index, :create]
   
   def index
     @commented_post_id = params['id']
-    # @user = User.find(id: current_user.id)
     @comments = Comment.where(post_id: params[:id]).order('created_at DESC')
   end
 
@@ -25,8 +23,5 @@ class CommentsController < ApplicationController
     params.permit(:author, :post, :text)
   end
 
-  
-  # def set_post
-  #   @post = Post.find(params[:id])
-  # end
+
 end
