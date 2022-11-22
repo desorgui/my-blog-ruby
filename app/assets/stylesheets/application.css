@@ -106,3 +106,34 @@ li {
   flex-direction: column;
   align-items: center;
 }
+
+/* Post form */
+
+.input-title,
+.input-description {
+  width: 100%;
+  border: none;
+  outline: none;
+}
+
+.input-title {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.input-title::placeholder {
+  font-size: 48px;
+  font-weight: bold;
+  color: #b3b3b3;
+}
+
+.input-description {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.input-description::placeholder {
+  font-size: 24px;
+  color: #b3b3b3;
+}
