@@ -2,9 +2,10 @@ class Comment < ApplicationRecord
   belongs_to :post
   belongs_to :author, class_name: 'User'
 
-  after_save :increment_comments_counter
-
   validates :text, presence: true
+
+  after_save :increment_comments_counter
+  after_destroy :decrement_comments_counter
 
   private
 
@@ -12,7 +13,7 @@ class Comment < ApplicationRecord
     post.increment!(:comments_counter)
   end
 
-  def update_comments_counter
-    post.increment!(:comments_counter)
+  def decrement_comments_counter
+    post.decrement!(:comments_counter) unless post.comments_counter.zero?
   end
 end

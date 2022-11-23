@@ -1,6 +1,6 @@
 <div class="post border-2">
   <div class="single-post">
-      <p>Post#<%=@post.id%> by <%=@user_found.name %></p>
+      <p>Post#<%=@post.id%> by <%=@post.author.name %></p>
       <div>
         <p class="counter">|  
         Likes: <%=@post.likes.count %>

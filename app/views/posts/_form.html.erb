@@ -1,7 +1,8 @@
-<%= form_with url: "/new", class: "post-form", method: :post do |form| %>
+<%= form_with(model: post, class: "post-form") do |form| %>
+
   <%= form.text_field :title, placeholder: "Title...", class: "input-title" %> 
   
-  <%= form.text_area :message, size: "80x7", placeholder: "Your story...", class: "input-description"  %>
+  <%= form.text_area :text, size: "80x7", placeholder: "Your story...", class: "input-description"  %>
   <br/><br/>
   <%= form.hidden_field :author_id, value: current_user.id %>
   <%= form.submit "Publish", class: "btn-cl btn-publish" %>

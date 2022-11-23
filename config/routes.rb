@@ -7,13 +7,17 @@ Rails.application.routes.draw do
     resources :posts, only: %i[index, show]
   end
 
-  get "/", to: "users#index"
+  resources :posts, only: %i[index, show, new, create]
+
+
+  get "/", to: "posts#index"
   get "/users", to: "users#index"
   get "/users/:id", to: "users#show"
   get "/users/:id/posts", to: "posts#index"
   get "/users/:id/posts/:post_id", to: "posts#show"
-  get "/createpost", to: "posts#loadpost"
+  get "/new", to: "posts#new"
   post "/new", to: "posts#create"
+  get "/posts/:id", to: "posts#show"
   get "/users/:user_id/posts/:post_id/loadcomment" , to: "comments#index"
   post "/users/:user_id/posts/:post_id/new-comment", to: "comments#create"
   post "/like", to: "likes#index"

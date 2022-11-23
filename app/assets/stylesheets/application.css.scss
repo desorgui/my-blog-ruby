@@ -1,3 +1,5 @@
+@import "font-awesome";
+@import "./custom.css";
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -13,11 +15,11 @@
  *= require_tree .
  *= require_self
  */
-
 * {
   margin: 0;
   padding: 0;
   color: black;
+  font-family: roboto, sans-serif;
 }
 
 body {
@@ -108,7 +110,10 @@ li {
 }
 
 /* Post form */
-
+.post-form {
+  max-width: 800px;
+  margin: 0 auto;
+}
 .input-title,
 .input-description {
   width: 100%;
