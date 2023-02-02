@@ -6,7 +6,7 @@
     <img class="img-profile" src=<%= "assets/profile1.png"  %> alt='ooops'/>
   </div>
   <%= post.author.name %> .
-  <%= post.created_at.strftime("%F") %>
+  <%= post.created_at.strftime("%a %d") %>
   </div>
     <a href=<%="/posts/#{post.id}"%>>
       <h3 class="post-title">

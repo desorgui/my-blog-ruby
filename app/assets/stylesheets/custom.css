@@ -37,7 +37,7 @@
   position: relative;
   padding-bottom: 0;
   display: block;
-  margin-bottom: 1.2rem;
+  margin-bottom: 2.5rem;
 }
 
 .comments {
@@ -47,6 +47,8 @@
 .comment-like {
   display: flex;
   gap: 1rem;
+  padding-left: 1rem;
+  margin-top: 1rem;
 }
 
 .field {
@@ -89,7 +91,7 @@
 
 .recent-posts {
   text-align: left;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2.5rem;
 }
 
 .single-post_item {
@@ -110,8 +112,7 @@
 .single-post_item .post_thumbnail {
   width: 6rem;
   height: 6rem;
-  border: 2px solid gray;
-  border-radius: 10px;
+  /* border: 2px solid gray; */
   overflow: hidden;
 }
 
@@ -122,10 +123,15 @@
 .post-title {
   font-size: 1.5rem;
   font-weight: 600;
+  margin-bottom: 0.5rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
 }
 
 .post-description {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 400;
   display: -webkit-box;
   -webkit-line-clamp: 3;
