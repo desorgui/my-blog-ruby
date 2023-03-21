@@ -1,52 +1,53 @@
 <div class="single-post_item">
-  <div style="flex-basis: 100%">
-  <div class="user">
-  <div class="meta-info">
-  <div class="author-profile">
-    <img class="img-profile" src=<%= "assets/profile1.png"  %> alt='ooops'/>
-  </div>
-  <%= post.author.name %> .
-  <%= post.created_at.strftime("%a %d") %>
-  </div>
-    <a href=<%="/posts/#{post.id}"%>>
-      <h3 class="post-title">
-      <strong><%=post.title %></strong>
-      </h3>
-    </a>
-      <p class="post-description">
-      <%=post.text %>
-      </p>
-        <% if can? :destroy, post %>
-            <%= form_with url: "/deletepost", class: "delete-frm", method: :post do |form| %>
-            <%= form.hidden_field :post_id, value:post.id %>
-            <%= form.hidden_field :author_id, value: current_user.id %>
-            <%= form.submit "Delete", class: "delete-btn" %>
-            <% end %>
-        <%end%>
-  </div>
-  <div>
-  </div>
-  <div class="comment-like">
-    <div class="like">
-      <%= form_with url: "/like", method: :post do |form| %>
-      <%= form.hidden_field :post_id, value:post.id %>
-      <%= form.hidden_field :author_id, value: current_user.id %>
-      <%# <%= form.submit icon('fa-regular', 'hands-clapping'), class: "btn-cl" %>
-      <%= button_tag type: 'submit', class: "btn-cl", id: "like-button" do %>
-        <%= icon('fa-regular', 'thumbs-up') %>
-        <span><%=post.likes.count %></span>
-      <% end %>
-      <% end %>
-    </div>
-    <div class="comment">
-      <a href=<%="/users/#{current_user.id}/posts/#{post.id}/loadcomment/"%>>
-      <%= button_tag type: 'button', class: "btn-cl", id: "comment-button" do %>
-        <%= icon('fa-regular', 'comment') %>
-        <span><%=post.comments.count %></span>
-      <% end %>
+  <div class="post-details">
+    <div class="post-info_text">
+      <div class="meta-info">
+        <div class="author-profile">
+          <img class="img-profile" src=<%= "assets/profile1.png"  %> alt='ooops'/>
+        </div>
+        <%= post.author.name %> .
+        <%= post.created_at.strftime("%a %d") %>
+      </div>
+      <a href=<%="/posts/#{post.id}"%>>
+        <h3 class="post-title">
+        <strong><%=post.title %></strong>
+        </h3>
       </a>
+        <p class="post-description">
+        <%=post.text %>
+        </p>
+          <% if can? :destroy, post %>
+              <%= form_with url: "/deletepost", class: "delete-frm", method: :post do |form| %>
+              <%= form.hidden_field :post_id, value:post.id %>
+              <%= form.hidden_field :author_id, value: current_user.id %>
+              <%= form.submit "Delete", class: "delete-btn" %>
+              <% end %>
+          <%end%>
+    <div class="comment-like">
+      <div class="like">
+        <%= form_with url: "/like", method: :post do |form| %>
+        <%= form.hidden_field :post_id, value:post.id %>
+        <%= form.hidden_field :author_id, value: current_user.id %>
+        <%# <%= form.submit icon('fa-regular', 'hands-clapping'), class: "btn-cl" %>
+        <%= button_tag type: 'submit', class: "btn-cl", id: "like-button" do %>
+          <%= icon('fa-regular', 'thumbs-up') %>
+          <span><%=post.likes.count %></span>
+        <% end %>
+        <% end %>
+      </div>
+      <div class="comment">
+        <a href=<%="/users/#{current_user.id}/posts/#{post.id}/loadcomment/"%>>
+        <%= button_tag type: 'button', class: "btn-cl", id: "comment-button" do %>
+          <%= icon('fa-regular', 'comment') %>
+          <span><%=post.comments.count %></span>
+        <% end %>
+        </a>
+      </div>
     </div>
-  </div>
+    <%# <% readtime = (post.text.split.length/250).ceil %>
+  <%# <div class="read-time"> 
+    <p><%= readtime %> <%#min read</p>
+  </div> %>
   </div>
   <div class="post_thumbnail">
     <img class="img-thumbnail" src=<%= "assets/profile2.jpg"  %> alt='ooops'/>

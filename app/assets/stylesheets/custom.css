@@ -33,7 +33,7 @@
   margin-bottom: 2rem;
 }
 
-.single-post {  
+.list-posts {  
   position: relative;
   padding-bottom: 0;
   display: block;
@@ -95,18 +95,18 @@
 }
 
 .single-post_item {
-  gap: 2rem;
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 2rem;
 }
 
 .meta-info {
   display: flex;
   gap: 0.5rem;
   align-items: center;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .single-post_item .post_thumbnail {
@@ -120,6 +120,12 @@
   width: 100%;
 }
 
+.blog-post-paragraph {
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+
 .post-title {
   font-size: 1.5rem;
   font-weight: 600;
@@ -131,12 +137,22 @@
 }
 
 .post-description {
-  font-size: 1.1rem;
+  font-size: 1.1em;
   font-weight: 400;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;  
   overflow: hidden;
+}
+
+.post-details {
+  display: flex;
+  align-items: center;
+}
+
+.post-info_text {
+  flex-basis: 80%;
+  margin-right: 1rem;
 }
 
 /* button */

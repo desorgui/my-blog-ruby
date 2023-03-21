@@ -13,12 +13,12 @@
 
 
   <div>
-  <p class="post-text">
+  <p class="post-title">
         <%=@post.title %>
       </p>
-      <p class="post-text">
-        <%=@post.text %>
-      </p>
+      <div class="post-body">
+        <%=simple_format(@post.text, class: "blog-post-paragraph") %>
+      </div>
       <div class="comment-like">
         <div class="like">
           <%= form_with url: "/like", method: :post do |form| %>

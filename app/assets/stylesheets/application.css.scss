@@ -1,5 +1,6 @@
 @import "font-awesome";
 @import "./custom.css";
+@import './actiontext.css';
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -136,6 +137,8 @@ li {
 .input-description {
   font-size: 24px;
   margin-bottom: 10px;
+  display: block;
+  background: rgb(211, 211, 211);
 }
 
 .input-description::placeholder {

@@ -3,6 +3,8 @@
   <%= form.text_field :title, placeholder: "Title...", class: "input-title" %> 
   
   <%= form.text_area :text, size: "80x7", placeholder: "Your story...", class: "input-description"  %>
+
+  <%= form.rich_text_area :content, class: "input-description", placeholder: "Story" %>
   <br/><br/>
   <%= form.hidden_field :author_id, value: current_user.id %>
   <%= form.submit "Publish", class: "btn-cl btn-publish" %>
