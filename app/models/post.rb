@@ -2,7 +2,7 @@ class Post < ApplicationRecord
   belongs_to :author, class_name: 'User'
   has_many :likes
   has_many :comments
-  has_rich_text :content
+  has_rich_text :text
 
   after_save :increment_post_counter
   after_destroy :decrement_post_counter

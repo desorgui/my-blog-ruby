@@ -17,7 +17,7 @@
         <%=@post.title %>
       </p>
       <div class="post-body">
-        <%=simple_format(@post.text, class: "blog-post-paragraph") %>
+        <%= @post.text %>
       </div>
       <div class="comment-like">
         <div class="like">
