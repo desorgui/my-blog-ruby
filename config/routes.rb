@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   resources :posts, only: %i[index, show, new, create]
 
-
+  root "posts#index"
   get "/", to: "posts#index"
   get "/users", to: "users#index"
   get "/users/:id", to: "users#show"

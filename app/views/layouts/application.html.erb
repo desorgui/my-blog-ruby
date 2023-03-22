@@ -14,12 +14,15 @@
   </head>
 
   <body>
-    <% if notice %>
-      <div class="notice"><%= notice %></div>
-    <% end %>
-    <% if alert %>
-      <p class="alert"><%= alert %></p>
-    <% end %>
-    <%= yield %>
+    <%= render 'components/header' %>
+    <main>
+      <% if notice %>
+        <div class="notice"><%= notice %></div>
+      <% end %>
+      <% if alert %>
+        <p class="alert"><%= alert %></p>
+      <% end %>
+      <%= yield %>
+    </main>
   </body>
 </html>

@@ -1,0 +1,103 @@
+:root {
+  --color-primary-300: #2f58cd;
+  --color-primary-400: #3795bd;
+  --color-primary-700: #95bdff;
+  --color-secondary-100: #fddfad;
+  --color-secondary-300: #fec978;
+  --color-secondary-600: #c29b44;
+  --color-grey-50: #f9faf9;
+  --color-grey-250: #e4e6eb;
+  --color-grey-500: #acada9;
+  --color-grey-950: #050505;
+  --color-brown-500: #b2551f;
+  --color-black: #000;
+  --color-white: #fff;
+
+  --color-primary: var(--color-primary-400);
+  --color-text-primary: var(--color-grey-950);
+
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-2: 0 1px 2px rgba(0, 0, 0, 0.1);
+  --shadow-inset-1: inset 0 1px 0 rgba(208, 215, 222, 0.2);
+  --card-shadow-1: var(--shadow-1);
+  --input-shadow: var(--shadow-inset-1);
+
+  --header-height: 5rem;
+
+  --recipe-item-width-desktop: 17.6rem;
+
+  --main-container-max-width: 160rem;
+}
+
+.c-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-height);
+  background-color: var(--color-white);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+}
+
+.c-header__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--main-container-max-width);
+  height: 100%;
+  padding: 0 2.4rem;
+  margin: 0 auto;
+}
+
+.c-header__logo {
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+.c-header__nav-list {
+  display: flex;
+  align-items: center;
+}
+
+.c-header__nav-list > li:not(:last-child) {
+  margin-right: 1.2rem;
+}
+
+.c-header__nav-link {
+  display: flex;
+  align-items: center;
+  height: var(--header-height);
+  font-size: 1.2em;
+  font-weight: 600;
+  text-transform: capitalize;
+  background-color: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  padding: 3px 0.4rem 0;
+  transition: all 0.2s;
+}
+
+.c-header__nav-link:hover {
+  border-color: var(--color-primary);
+}
+
+.c-header__user-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: none;
+}
+
+.c-header__user-btn span {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.c-header__user-img {
+  margin-right: 0.8rem;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+}

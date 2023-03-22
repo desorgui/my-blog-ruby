@@ -3,7 +3,7 @@
     <div class="post-info_text">
       <div class="meta-info">
         <div class="author-profile">
-          <img class="img-profile" src=<%= "assets/profile1.png"  %> alt='ooops'/>
+          <img class="img-profile" src=<%= image_url("profile1.png") %> alt='ooops'/>
         </div>
         <%= post.author.name %> .
         <%= post.created_at.strftime("%a %d") %>
@@ -50,6 +50,6 @@
   </div> %>
   </div>
   <div class="post_thumbnail">
-    <img class="img-thumbnail" src=<%= "assets/profile2.jpg"  %> alt='ooops'/>
+    <img class="img-thumbnail" src=<%= image_url("profile2.jpg") %> alt='ooops'/>
   </div>
 </div>
