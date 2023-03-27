@@ -30,9 +30,7 @@
 }
 
 .c-header {
-  position: fixed;
-  top: 0;
-  left: 0;
+  position: relative;
   width: 100%;
   height: var(--header-height);
   background-color: var(--color-white);
@@ -46,7 +44,7 @@
   justify-content: space-between;
   max-width: var(--main-container-max-width);
   height: 100%;
-  padding: 0 2.4rem;
+  padding: 0 7%;
   margin: 0 auto;
 }
 
@@ -98,6 +96,6 @@
 .c-header__user-img {
   margin-right: 0.8rem;
   width: 3rem;
-  height: 3rem;
+  height: 3 rem;
   border-radius: 50%;
 }
